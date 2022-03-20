@@ -25,10 +25,22 @@ class SingletonMeta(type):
 
 
 class Engine(metaclass=SingletonMeta):
-    def some_business_logic(self):
-        """
-        Finally, any singleton should define some business logic, which can be
-        executed on its instance.
-        """
+    def __init__(self):
+        WIDTH, HEIGHT = 80, 60  # Console width and height in tiles.
+        """Script entry point."""
+        # Load the font, a 32 by 8 tile font with libtcod's old character layout.
+        path_to_tilesheet = os.path.join(ROOT_DIR, 'resources\\dejavu10x10_gs_tc.png')
+        tileset = tcod.tileset.load_tilesheet(
+            path_to_tilesheet, 32, 8, tcod.tileset.CHARMAP_TCOD,
+        )
+        # Create the main console.
+        self.console = tcod.Console(WIDTH, HEIGHT, order="F")
+        # Create a window based on this console and tileset.
+        self.context = tcod.context.new(columns=self.console.width, rows=self.console.height, tileset=tileset)
 
-        # ...
+
+        ##Creation of System Manager and Systems
+        self.system_manager = SystemManager()
+
+    def update(self):
+        self
