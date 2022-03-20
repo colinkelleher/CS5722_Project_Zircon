@@ -9,5 +9,20 @@ class Entity(object):
 
     def __init__(self):
         self.id = str(uuid.uuid4())
-        self.components: List[Component] = []
-        self.entityindex[self.id] = self
+        self.components = {}
+        self.entitymapping[self.id] = self
+
+    def set(self, component: Component):
+        key = type(component)
+        self.components[key] = component
+
+    def get(self, class_name):
+        return self.components[class_name]
+
+    def has(self, class_name):
+        return self.get(class_name) is not None
+
+
+
+
+
