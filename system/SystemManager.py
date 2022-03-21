@@ -9,7 +9,8 @@ class SystemManager:
         self.systemList: Dict[uuid.UUID, System] = {}
 
     def set_system(self, system: System):
-        self.systemList[system.get_id()] = system
+        self.systemList[system.get_id(self)] = system
+
 
     def update(self, *args):
         for system in self.systemList.values():

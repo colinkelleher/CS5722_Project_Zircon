@@ -12,6 +12,6 @@ class System(ABC):
     def get_id(self):
         return self._system_id
 
-    @abstractmethod
-    def update(self, **kwargs):
-        pass
+    # @abstractmethod
+    # def update(self, **kwargs):
+    #     pass
