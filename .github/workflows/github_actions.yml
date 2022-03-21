@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    name: Install Python 3
+    name: System Testing
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,4 +25,4 @@ jobs:
         with:
           python-version: 3.6
       - name: Run Test
-        run: python3 -m unittest test/*
+        run: python3 -m unittest test/SystemTests/*
