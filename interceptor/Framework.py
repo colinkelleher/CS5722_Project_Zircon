@@ -3,4 +3,3 @@ class Framework:
         self.name = name
         self.state = state
         self.random_parameter = random_parameter
-
