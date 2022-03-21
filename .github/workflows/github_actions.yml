@@ -27,11 +27,11 @@ jobs:
       - name: Running SystemTests
         run: python3 -m unittest test/SystemTests/*
         
-    interceptortest:
-      name: InterceptorTests
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Running SystemTests
-          run: python3 -m unittest test/InterceptorTest/*
+  interceptortest:
+    name: InterceptorTests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running SystemTests
+        run: python3 -m unittest test/InterceptorTest/*
 
