@@ -4,8 +4,8 @@ import random
 from typing import Iterator, List, Tuple, TYPE_CHECKING
 
 import tcod
-from game_map import GameMap
-import tile_types
+from map.game_map import GameMap
+import map.tile_types as tile_types
 
 if TYPE_CHECKING:
     from entity import Entity

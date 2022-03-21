@@ -4,13 +4,14 @@ from component.DisplayComponent import DisplayComponent
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
+from map.procgen import generate_dungeon
 from system.DisplaySystem import DisplaySystem
 
 
 class Main:
     def __init__(self):
-        self.engine = Engine()
         self.player = Player()
+        self.engine = Engine()
         self.engine.add_entity(self.player)
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)
