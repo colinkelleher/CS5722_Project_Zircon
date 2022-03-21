@@ -11,4 +11,4 @@ class TestSystem(TestCase):
     def test_Protected_System_Id_Cannot_Be_Modified(self):
         system = System()
         system._system_id = 5
-        self.assertNotEqual()(system._system_id, 1, 'Id should not have been modified')
+        self.assertNotEqual(system._system_id, 1, 'Id should not have been modified')
