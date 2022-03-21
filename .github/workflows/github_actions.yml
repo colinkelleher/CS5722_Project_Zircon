@@ -24,3 +24,5 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.6
+      - name: Run Test
+        run: python3 test/EntityTest/*
