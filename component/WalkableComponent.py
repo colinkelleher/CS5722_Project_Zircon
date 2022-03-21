@@ -7,3 +7,6 @@ class WalkableComponent(Component):
 
     def set_walkable(self, walkable: bool):
         self.walkable = walkable
+
+    def get_walkable(self):
+        return self.walkable
