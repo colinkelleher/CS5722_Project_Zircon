@@ -11,6 +11,6 @@ class SystemManager:
     def set_system(self, system: System):
         self.systemList[system.get_id()] = system
 
-    def update(self):
+    def update(self, *args):
         for system in self.systemList.values():
-            system.update()
+            system.update(*args)

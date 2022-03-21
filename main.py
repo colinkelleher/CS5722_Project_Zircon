@@ -1,6 +1,7 @@
 import tcod
 
 from component.DisplayComponent import DisplayComponent
+from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
 from system.DisplaySystem import DisplaySystem
@@ -12,7 +13,7 @@ class Main:
         self.player = Player()
         self.engine.add_entity(self.player)
         display_system = DisplaySystem()
-        self.engine.add_system(display_system)
+        self.engine.system_manager.set_system(display_system)
 
     def core_game_loop(self):
 
@@ -26,17 +27,17 @@ class Main:
                 self.engine.context.convert_event(event)  # Sets tile coordinates for mouse events.
                 print(event)  # Print event names and attributes.
 
-                dc = self.player.get(DisplayComponent)  # Get displayComponent for the single Entity
+                poscomp = self.player.get(PositionComponent)  # Get displayComponent for the single Entity
                 if isinstance(event, tcod.event.KeyDown):  # later we should have many entities
                     key = event.sym
                     if key == tcod.event.K_UP:
-                        dc.y -= 1
+                        poscomp.y -= 1
                     elif key == tcod.event.K_DOWN:
-                        dc.y += 1
+                        poscomp.y += 1
                     elif key == tcod.event.K_LEFT:
-                        dc.x -= 1
+                        poscomp.x -= 1
                     elif key == tcod.event.K_RIGHT:
-                        dc.x += 1
+                        poscomp.x += 1
                 if isinstance(event, tcod.event.Quit):
                     raise SystemExit()
 

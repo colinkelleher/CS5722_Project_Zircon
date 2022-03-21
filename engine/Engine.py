@@ -29,7 +29,6 @@ class SingletonMeta(type):
 class Engine(metaclass=SingletonMeta):
     def __init__(self):
         Engine.instance = self
-        self._systems = []
         self.entities = []
 
         WIDTH, HEIGHT = 80, 60  # Console width and height in tiles.
@@ -51,5 +50,4 @@ class Engine(metaclass=SingletonMeta):
         self.entities.append(entity)
 
     def update(self):
-        for s in self._systems:
-            s.update(self.context, self.console, self.entities)
+        self.system_manager.update(self.context, self.console, self.entities)
