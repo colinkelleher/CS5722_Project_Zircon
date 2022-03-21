@@ -15,8 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  systemtest:
-    name: SystemTests
+  installpython:
+    name: Install Python
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,38 +24,52 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
-      - name: Running SystemTests
-        run: python3 -m unittest test/SystemTests/*
+
+  tcod: 
+      name: InstallTCOD
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Installing TCOD
+          run: pip install tcod
+          
+  systemtest: 
+      name: SystemTests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Running SystemTests
+          run: python3 -m unittest test/SystemTests/*
         
   interceptortest:
-    name: InterceptorTests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Running SystemTests
-        run: python3 -m unittest test/InterceptorTest/*
+      name: InterceptorTests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Running InterceptorTests
+          run: python3 -m unittest test/InterceptorTest/*
 
   entitytest:
-    name: EntityTests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Running EntityTests
-        run: python3 -m unittest test/EntityTest/*
+      name: EntityTests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Running EntityTests
+          run: python3 -m unittest test/EntityTest/*
 
   enginetest:
-    name: EngineTests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Running EngineTests
-        run: python3 -m unittest test/EngineTests/*
-        
+      name: EngineTests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Running EngineTests
+          run: python3 -m unittest test/EngineTests/*
+
   componenttest:
-    name: ComponentTests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Running ComponentTests
-        run: python3 -m unittest test/ComponentTests/*
+      name: ComponentTests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Running ComponentTests
+          run: python3 -m unittest test/ComponentTests/*
 
