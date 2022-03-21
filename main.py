@@ -4,6 +4,7 @@ from component.DisplayComponent import DisplayComponent
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
+from entity.Wall import Wall
 from map.procgen import generate_dungeon
 from system.DisplaySystem import DisplaySystem
 
@@ -11,8 +12,10 @@ from system.DisplaySystem import DisplaySystem
 class Main:
     def __init__(self):
         self.player = Player()
+        self.wall_determined = Wall()
         self.engine = Engine()
         self.engine.add_entity(self.player)
+        self.engine.add_entity(self.wall_determined)
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)
 

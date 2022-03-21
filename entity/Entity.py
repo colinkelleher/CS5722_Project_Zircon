@@ -1,5 +1,4 @@
 import uuid
-from typing import List
 
 from component.Component import Component
 
