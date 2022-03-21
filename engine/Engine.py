@@ -47,9 +47,6 @@ class Engine(metaclass=SingletonMeta):
         ##Creation of System Manager and Systems
         self.system_manager = SystemManager()
 
-    def add_system(self, system):
-        self._systems.append(system)
-
     def add_entity(self, entity):
         self.entities.append(entity)
 
