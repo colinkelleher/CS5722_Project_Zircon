@@ -4,6 +4,6 @@ from component.WalkableComponent import WalkableComponent
 from entity.Entity import Entity
 
 
-class Wall(Entity):
+class Floor(Entity):
     def __init__(self, x: int, y: int):
-        super().__init__(DisplayComponent(" ", (150, 150, 150)), PositionComponent(x, y), WalkableComponent(False))
+        super().__init__(DisplayComponent(" ", (200, 200, 200)), PositionComponent(x, y), WalkableComponent(True))
