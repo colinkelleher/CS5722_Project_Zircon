@@ -25,4 +25,4 @@ jobs:
         with:
           python-version: 3.6
       - name: Run Test
-        run: python3 test/EntityTest/*
+        run: python3 test/EntityTest/test_Entity.py
