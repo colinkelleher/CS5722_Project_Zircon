@@ -1,5 +1,7 @@
-import tcod
 import os
+
+import tcod
+
 from definitions import ROOT_DIR
 from system.SystemManager import SystemManager
 
@@ -26,6 +28,10 @@ class SingletonMeta(type):
 
 class Engine(metaclass=SingletonMeta):
     def __init__(self):
+        Engine.instance = self
+        self._systems = []
+        self.entities = []
+
         WIDTH, HEIGHT = 80, 60  # Console width and height in tiles.
         """Script entry point."""
         # Load the font, a 32 by 8 tile font with libtcod's old character layout.
@@ -38,9 +44,15 @@ class Engine(metaclass=SingletonMeta):
         # Create a window based on this console and tileset.
         self.context = tcod.context.new(columns=self.console.width, rows=self.console.height, tileset=tileset)
 
-
         ##Creation of System Manager and Systems
         self.system_manager = SystemManager()
 
+    def add_system(self, system):
+        self._systems.append(system)
+
+    def add_entity(self, entity):
+        self.entities.append(entity)
+
     def update(self):
-        self
+        for s in self._systems:
+            s.update(self.context, self.console, self.entities)

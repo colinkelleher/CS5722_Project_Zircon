@@ -7,10 +7,13 @@ from component.Component import Component
 class Entity(object):
     entitymapping = {}        # Maps entity IDs to entity objects
 
-    def __init__(self):
+    def __init__(self, *components):
         self.id = str(uuid.uuid4())
         self.components = {}
         self.entitymapping[self.id] = self
+
+        for component in components:
+            self.set(component)
 
     def set(self, component: Component):
         key = type(component)
