@@ -1,5 +1,6 @@
 from unittest import TestCase
-from engine.Engine import *
+
+from engine.Engine import Engine
 
 
 class TestEngine(TestCase):
