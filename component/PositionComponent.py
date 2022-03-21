@@ -2,9 +2,9 @@ from component.Component import Component
 
 
 class PositionComponent(Component):
-    def __init__(self):
-        self.x = None
-        self.y = None
+    def __init__(self, x: int = None, y: int = None):
+        self.x = x
+        self.y = y
 
     def set_pos(self, x: int, y: int):
         self.x = x

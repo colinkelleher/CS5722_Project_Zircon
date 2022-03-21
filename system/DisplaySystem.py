@@ -1,6 +1,7 @@
 from typing import List
 
 from component.DisplayComponent import DisplayComponent
+from component.PositionComponent import PositionComponent
 from entity.Entity import Entity
 from system.System import System
 
@@ -12,6 +13,7 @@ class DisplaySystem(System):
 
         for e in entities:
             dc = e.get(DisplayComponent)
-            console.print(x=dc.x, y=dc.y, string=dc.character)
+            poscomp = e.get(PositionComponent)
+            console.print(x=poscomp.x, y=poscomp.y, string=dc.character)
 
         context.present(console)  # Show the console.
