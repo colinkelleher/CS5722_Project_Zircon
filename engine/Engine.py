@@ -27,11 +27,11 @@ class SingletonMeta(type):
 
 
 class Engine(metaclass=SingletonMeta):
-    def __init__(self):
+    def __init__(self, screen_width, screen_height):
         Engine.instance = self
         self.entities = []
 
-        WIDTH, HEIGHT = 80, 60  # Console width and height in tiles.
+        WIDTH, HEIGHT = screen_width, screen_height  # Console width and height in tiles.
         """Script entry point."""
         # Load the font, a 32 by 8 tile font with libtcod's old character layout.
         path_to_tilesheet = os.path.join(ROOT_DIR, 'resources\\dejavu10x10_gs_tc.png')

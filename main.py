@@ -5,15 +5,16 @@ from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
 from entity.Wall import Wall
-from map.procgen import generate_dungeon
 from system.DisplaySystem import DisplaySystem
 
 
 class Main:
     def __init__(self):
-        self.player = Player()
-        self.wall_determined = Wall()
-        self.engine = Engine()
+        screen_width = 80
+        screen_height = 60
+        self.player = Player(int(screen_width / 2), int(screen_height / 2))
+        self.wall_determined = Wall(25, 25)
+        self.engine = Engine(screen_width, screen_height)
         self.engine.add_entity(self.player)
         self.engine.add_entity(self.wall_determined)
         display_system = DisplaySystem()
