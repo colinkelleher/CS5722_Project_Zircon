@@ -1,15 +1,16 @@
 from component.Component import Component
+from typing import Tuple
 
 
 class DisplayComponent(Component):
-    def __init__(self, character, dark: tuple[int, int, int]):
+    def __init__(self, character: str, color: Tuple[int, int, int]):
         self.character = character
-        self.dark = dark
+        self.color = color
 
     """
-    Dark represents the tile color, for now
-    We will add later the Light that is a new color for the tile, depending if
-    it is in the field of view (FOV)
+    Color represents the tile background color
+    We can differentiate later the tiles that are in or out of the field of view (FOV) 
+    and change the background color
     """
-    def set_dark(self, dark: tuple[int, int, int]):
-        self.dark = dark
+    def set_color(self, color: Tuple[int, int, int]):
+        self.color = color

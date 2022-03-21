@@ -13,6 +13,6 @@ class DisplaySystem(System):
         for e in entities:
             dc = e.get(DisplayComponent)
             poscomp = e.get(PositionComponent)
-            console.print(x=poscomp.x, y=poscomp.y, string=dc.character, fg=dc.dark)
+            console.print(x=poscomp.x, y=poscomp.y, string=dc.character, bg=dc.color)
 
         context.present(console)  # Show the console.
