@@ -39,7 +39,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Installing Comtypes
-          run: pip install comtypes
+          run: pip install numpy
           
   systemtest: 
       name: SystemTests
