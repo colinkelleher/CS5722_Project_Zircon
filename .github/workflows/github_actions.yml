@@ -55,7 +55,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Running InterceptorTests
-          run: python3 -m unittest test/InterceptorTest/*
+          run: pip install numpy | python3 -m unittest test/InterceptorTest/*
 
   entitytest:
       name: EntityTests
