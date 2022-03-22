@@ -12,4 +12,3 @@ class ConcreteInterceptor1(AbstractInterceptor):
               + "\n" + "state : " + context.get_state()
               + "\n" + "random-parameter : " + context.get_random_parameter()
               + "\n")
-
