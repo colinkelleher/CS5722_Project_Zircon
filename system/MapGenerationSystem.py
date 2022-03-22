@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Tuple, List, TYPE_CHECKING
 import random
 
-from comtypes.safearray import numpy
+import numpy
 
 if TYPE_CHECKING:
     from entity import Entity
