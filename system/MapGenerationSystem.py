@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from array import array
 
 from typing import Tuple, List, TYPE_CHECKING
 import random
