@@ -1,6 +1,8 @@
 from unittest import TestCase
+from numpy import *
 from system.MapGenerationSystem import GameMap
 from system.MapGenerationSystem import RectangularRoom
+
 
 class TestGameMap(TestCase):
     def test_in_bounds(self):
