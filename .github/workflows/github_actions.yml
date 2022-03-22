@@ -47,7 +47,9 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Running SystemTests
-          run: python3 -m unittest test/SystemTests/*
+          run: |
+            pip install numpy
+            python3 -m unittest test/SystemTests/*
         
   interceptortest:
       name: InterceptorTests
@@ -55,7 +57,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Running InterceptorTests
-          run: pip install numpy | python3 -m unittest test/InterceptorTest/*
+          run: python3 -m unittest test/InterceptorTest/*
 
   entitytest:
       name: EntityTests
