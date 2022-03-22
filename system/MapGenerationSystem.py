@@ -6,6 +6,7 @@ import random
 
 import numpy
 
+
 if TYPE_CHECKING:
     from entity import Entity
 
