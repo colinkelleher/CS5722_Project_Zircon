@@ -31,12 +31,12 @@ class SingletonMeta(type):
 
 class Engine(metaclass=SingletonMeta):
     # TODO must not take screen width, height and game map as parameters
-    def __init__(self, screen_width, screen_height, game_map: GameMap):
-        Engine.instance = self
+    def __init__(self):
         self.entities = []
 
-        WIDTH, HEIGHT = screen_width, screen_height  # Console width and height in tiles.
-        self.game_map = game_map
+        # TODO put magical values like these in a config file
+        WIDTH, HEIGHT = 80, 90  # Console width and height in tiles.
+        # self.game_map = game_map
 
         """Script entry point."""
         # Load the font, a 32 by 8 tile font with libtcod's old character layout.
@@ -55,15 +55,15 @@ class Engine(metaclass=SingletonMeta):
         # Creation of Entities Wall and Floor
         # TODO must be moved away in a different system
 
-        grid = self.game_map.tiles
-        for i in range(len(grid) - 1):
-            for j in range(len(grid) - 1):
-                if grid[i][j] == 1:
-                    Wall(i, j)
-                elif grid[i][j] == 0:
-                    Floor(i, j)
-                else:
-                    pass
+        # grid = self.game_map.tiles
+        # for i in range(len(grid) - 1):
+        #     for j in range(len(grid) - 1):
+        #         if grid[i][j] == 1:
+        #             Wall(i, j)
+        #         elif grid[i][j] == 0:
+        #             Floor(i, j)
+        #         else:
+        #             pass
 
     def add_entity(self, entity):
         self.entities.append(entity)
