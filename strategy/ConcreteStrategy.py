@@ -1,0 +1,3 @@
+
+class ConcreteStrategy():
+    pass
