@@ -12,9 +12,9 @@ class Entity(object):
         self.entitymapping[self.id] = self
 
         for component in components:
-            self.set(component)
+            self.set_component(component)
 
-    def set(self, component: Component):
+    def set_component(self, component: Component):
         key = type(component)
         self.components[key] = component
 

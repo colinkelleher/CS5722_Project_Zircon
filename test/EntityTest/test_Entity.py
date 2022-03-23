@@ -9,7 +9,7 @@ class TestEntity(TestCase):
     def test_set(self):
         entity = Entity()
         poscomp = Component()
-        entity.set(poscomp)
+        entity.set_component(poscomp)
         res = entity.get()
 
         # self.assertTrue(PositionComponent in player.components)
