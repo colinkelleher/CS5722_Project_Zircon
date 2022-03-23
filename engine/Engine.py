@@ -5,7 +5,7 @@ import tcod
 from definitions import ROOT_DIR
 from entity.Floor import Floor
 from entity.Wall import Wall
-from system.MapGenerationSystem import GameMap
+from system.FactoryMethod import GameMap
 from system.SystemManager import SystemManager
 
 
