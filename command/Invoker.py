@@ -2,24 +2,24 @@ from command.Command import Command
 from command.Receiver import Receiver
 
 class Invoker:
-    _onStart = None
-    _onFinish = None
+    onStart = None
+    onFinish = None
 
     def setStart(self,command:Command):
-        self._onStart = command
+        self.onStart = command
 
     def setFinish(self, command:Command):
-        self._onFinish = command
+        self.onFinish = command
 
     def completeTask(self)-> None:
 
         print("Invoker - task execution")
-        if isinstance(self._onStart, Command):
-            self._onStart.execute()
+        if isinstance(self.onStart, Command):
+            self.onStart.execute()
 
         print("Carrying out task...")
 
-        if isinstance(self._onFinish, Command):
-            self._onFinish.execute()
+        if isinstance(self.onFinish, Command):
+            self.onFinish.execute()
 
 
