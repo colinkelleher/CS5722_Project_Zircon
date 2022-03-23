@@ -30,6 +30,7 @@ class SingletonMeta(type):
 
 
 class Engine(metaclass=SingletonMeta):
+    # TODO must not take screen width, height and game map as parameters
     def __init__(self, screen_width, screen_height, game_map: GameMap):
         Engine.instance = self
         self.entities = []
@@ -52,9 +53,11 @@ class Engine(metaclass=SingletonMeta):
         self.system_manager = SystemManager()
 
         # Creation of Entities Wall and Floor
+        # TODO must be moved away in a different system
+
         grid = self.game_map.tiles
-        for i in range(len(grid)-1):
-            for j in range(len(grid)-1):
+        for i in range(len(grid) - 1):
+            for j in range(len(grid) - 1):
                 if grid[i][j] == 1:
                     Wall(i, j)
                 elif grid[i][j] == 0:
