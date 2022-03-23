@@ -9,7 +9,7 @@ class TestPlayer(TestCase):
     def test_set(self):
         player = Player()
         poscomp = PositionComponent()
-        player.set(poscomp)
+        player.set_component(poscomp)
 
         self.assertTrue(PositionComponent in player.components)
         self.assertTrue(DisplayComponent in player.components)

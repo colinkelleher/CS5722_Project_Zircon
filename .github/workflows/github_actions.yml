@@ -24,14 +24,6 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
-
-  tcod: 
-      name: InstallTCOD
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Installing TCOD
-          run: pip install tcod
   
   comtypes: 
       name: InstallComtypes
@@ -73,7 +65,9 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Running EngineTests
-          run: python3 -m unittest test/EngineTests/*
+          run: |
+            pip install tcod
+            python3 -m unittest test/EngineTests/*
 
   componenttest:
       name: ComponentTests

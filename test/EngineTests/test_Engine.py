@@ -7,4 +7,4 @@ class TestEngine(TestCase):
     def test_singleton_pattern(self):
         engine1 = Engine()
         engine2 = Engine()
-        self.assertNotEqual(id(engine1),id(engine2),'Singleton Failed')
+        self.assertEqual(id(engine1), id(engine2), 'Singleton Failed')

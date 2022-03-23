@@ -8,10 +8,10 @@ from entity.Entity import Entity
 class TestEntity(TestCase):
     def test_set(self):
         entity = Entity()
-        poscomp = Component()
-        entity.set(poscomp)
-        res = entity.get()
+        poscomp = PositionComponent()
+        entity.set_component(poscomp)
+        res = entity.get(PositionComponent)
 
         # self.assertTrue(PositionComponent in player.components)
         # self.assertTrue(player.has(PositionComponent))
-        self.assertTrue(poscomp in res)
+        self.assertEqual(poscomp, res)
