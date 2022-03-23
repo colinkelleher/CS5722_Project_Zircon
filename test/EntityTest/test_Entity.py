@@ -10,8 +10,8 @@ class TestEntity(TestCase):
         entity = Entity()
         poscomp = Component()
         entity.set_component(poscomp)
-        res = entity.get()
+        res = entity.get(PositionComponent)
 
         # self.assertTrue(PositionComponent in player.components)
         # self.assertTrue(player.has(PositionComponent))
-        self.assertTrue(poscomp in res)
+        self.assertEqual(poscomp, res)
