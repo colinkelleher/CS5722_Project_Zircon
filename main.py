@@ -26,10 +26,7 @@ class Main:
         )
 
         self.wall_determined = Wall(25, 25)
-        self.engine = Engine(screen_width, screen_height, game_map)
-        self.engine.add_entity(self.player)
-        self.engine.add_entity(self.wall_determined)
-        # self.engine.add_entity(game_map)
+        self.engine = Engine()
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)
 
