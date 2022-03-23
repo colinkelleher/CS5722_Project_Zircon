@@ -1,7 +1,7 @@
 from unittest import TestCase
 from numpy import *
-from system.MapGenerationSystem import GameMap
-from system.MapGenerationSystem import RectangularRoom
+from system.FactoryMethod import GameMap
+from system.FactoryMethod import RectangularRoom
 
 
 class TestGameMap(TestCase):

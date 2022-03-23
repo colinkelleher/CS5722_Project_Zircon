@@ -6,7 +6,7 @@ from engine.Engine import Engine
 from entity.Player import Player
 from entity.Wall import Wall
 from system.DisplaySystem import DisplaySystem
-from system.MapGenerationSystem import DungeonGenerator
+from system.FactoryMethod import client_code, MapGeneratorSimple
 
 
 class Main:
@@ -14,6 +14,9 @@ class Main:
         screen_width = 80
         screen_height = 90
         self.player = Player(int(screen_width / 2), int(screen_height / 2))
+        print("\n")
+        client_code(MapGeneratorSimple())
+        print("\n")
 
         # map_width, map_height, room_max_size, room_min_size, max_rooms = 80, 80, 20, 6, 30
         # game_map = generate_dungeon(
