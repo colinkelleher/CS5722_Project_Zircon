@@ -6,30 +6,24 @@ from engine.Engine import Engine
 from entity.Player import Player
 from entity.Wall import Wall
 from system.DisplaySystem import DisplaySystem
-from system.MapGenerationSystem import generate_dungeon
+from system.MapGenerationSystem import DungeonGenerator
 
 
 class Main:
     def __init__(self):
+
+        # these next lines should be moved out of the Main class
         screen_width = 80
         screen_height = 90
         self.player = Player(int(screen_width / 2), int(screen_height / 2))
-
-        map_width, map_height, room_max_size, room_min_size, max_rooms = 80, 80, 20, 6, 30
-        game_map = generate_dungeon(
-            max_rooms=max_rooms,
-            room_min_size=room_min_size,
-            room_max_size=room_max_size,
-            map_width=map_width,
-            map_height=map_height,
-            player=self.player
-        )
-
+        # dg = DungeonGenerator()
+        # game_map = DungeonGenerator.generate_dungeon(dg, max_rooms=20, room_min_size=6, room_max_size=20,
+        # map_width=80, map_height=80, player=self.player)
         self.wall_determined = Wall(25, 25)
-        self.engine = Engine(screen_width, screen_height, game_map)
+
+        self.engine = Engine(screen_width, screen_height)
         self.engine.add_entity(self.player)
         self.engine.add_entity(self.wall_determined)
-        # self.engine.add_entity(game_map)
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)
 
