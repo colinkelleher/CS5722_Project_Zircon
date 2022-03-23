@@ -8,7 +8,7 @@ from entity.Entity import Entity
 class TestEntity(TestCase):
     def test_set(self):
         entity = Entity()
-        poscomp = Component()
+        poscomp = PositionComponent()
         entity.set_component(poscomp)
         res = entity.get(PositionComponent)
 
