@@ -1,12 +1,11 @@
 import tcod
 
-from component.DisplayComponent import DisplayComponent
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
 from entity.Wall import Wall
 from system.DisplaySystem import DisplaySystem
-from system.FactoryMethod import client_code, MapGeneratorSimple
+from factory.FactoryMethod import client_code, MapGeneratorSimple
 
 
 class Main:
