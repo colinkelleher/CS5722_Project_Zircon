@@ -1,5 +1,14 @@
 from __future__ import annotations
-from abc import ABC,abstractmethod
 
 class Context():
-    pass
+    def __init__(self, strategy:Strategy) -> None:
+        self._strategy = strategy
+
+    @property
+    def getStrategy(self)-> Strategy:
+        return self._strategy
+
+    @setStrategy.setter
+    def setStrategy(self, strategy: Strategy) -> None:
+        self._strategy = strategy
+
