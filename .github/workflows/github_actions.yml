@@ -42,6 +42,15 @@ jobs:
           run: |
             pip install numpy
             python3 -m unittest test/SystemTests/*
+
+  strategytest:
+    name: StrategyTests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running StrategyTests
+        run: |
+          python3 -m unittest test/StrategyTests/*
         
   interceptortest:
       name: InterceptorTests
