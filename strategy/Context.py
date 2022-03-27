@@ -5,10 +5,14 @@ class Context():
         self._strategy = strategy
 
     @property
-    def getStrategy(self)-> Strategy:
+    def strategy(self)-> Strategy:
         return self._strategy
 
-    @setStrategy.setter
-    def setStrategy(self, strategy: Strategy) -> None:
+    @strategy.setter
+    def strategy(self, strategy: Strategy) -> None:
         self._strategy = strategy
 
+    def businessLogic(self)-> List:
+        # Testing random business logic here - Any task can be put here
+        result = self._strategy.completeTask([1,2,3,4,5])
+        return result
