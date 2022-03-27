@@ -10,5 +10,5 @@ from typing import List
 
 class Stategy(ABC):
     @abstractmethod
-    def algoirthm(self,data:List):
+    def completeTask(self,data:List):
         pass
