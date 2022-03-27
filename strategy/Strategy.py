@@ -8,7 +8,7 @@ from abc import ABC,abstractmethod
 from typing import List
 
 
-class Stategy(ABC):
+class Strategy(ABC):
     @abstractmethod
     def completeTask(self,data:List):
         pass
