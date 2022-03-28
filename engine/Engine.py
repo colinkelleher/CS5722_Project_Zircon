@@ -2,8 +2,11 @@ import os
 
 import tcod
 
+import config
 from definitions import ROOT_DIR
 from entity.Entity import Entity
+from factory.FactoryMethod import client_code, MapGeneratorSimple
+from factory.GameMapCreator import GameMapSimple
 from system.SystemManager import SystemManager
 
 
@@ -28,22 +31,19 @@ class SingletonMeta(type):
 
 
 class Engine(metaclass=SingletonMeta):
-    # TODO must not take screen width, height and game map as parameters
+
     def __init__(self):
         self.entities = []
 
-        # TODO put magical values like these in a config file
-        WIDTH, HEIGHT = 80, 90  # Console width and height in tiles.
-        # self.game_map = game_map
+        # Console width and height in tiles.
+        self.screen_width = config.screen_width
+        self.screen_height = config.screen_height
 
         """Script entry point."""
         # Load the font, a 32 by 8 tile font with libtcod's old character layout.
-        path_to_tilesheet = os.path.join(ROOT_DIR, 'resources\\dejavu10x10_gs_tc.png')
-        tileset = tcod.tileset.load_tilesheet(
-            path_to_tilesheet, 32, 8, tcod.tileset.CHARMAP_TCOD,
-        )
+        tileset = config.tileset
         # Create the main console.
-        self.console = tcod.Console(WIDTH, HEIGHT, order="F")
+        self.console = tcod.Console(self.screen_width, self.screen_height, order="F")
         # Create a window based on this console and tileset.
         self.context = tcod.context.new(columns=self.console.width, rows=self.console.height, tileset=tileset)
 
@@ -51,17 +51,9 @@ class Engine(metaclass=SingletonMeta):
         self.system_manager = SystemManager()
 
         # Creation of Entities Wall and Floor
-        # TODO must be moved away in a different system
-
-        # grid = self.game_map.tiles
-        # for i in range(len(grid) - 1):
-        #     for j in range(len(grid) - 1):
-        #         if grid[i][j] == 1:
-        #             Wall(i, j)
-        #         elif grid[i][j] == 0:
-        #             Floor(i, j)
-        #         else:
-        #             pass
+        print("\n")
+        client_code(MapGeneratorSimple())
+        print("\n")
 
     # TODO should not pass self.entities, as entity list can be accessed from Entity.entitymapping static list
     def update(self):
