@@ -1,33 +1,18 @@
 import tcod
 
+import config
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
-from entity.Wall import Wall
 from system.DisplaySystem import DisplaySystem
-from factory.FactoryMethod import client_code, MapGeneratorSimple
 
 
 class Main:
     def __init__(self):
-        screen_width = 80
-        screen_height = 90
+        screen_width = config.screen_width
+        screen_height = config.screen_height
         self.player = Player(int(screen_width / 2), int(screen_height / 2))
-        print("\n")
-        client_code(MapGeneratorSimple())
-        print("\n")
 
-        # map_width, map_height, room_max_size, room_min_size, max_rooms = 80, 80, 20, 6, 30
-        # game_map = generate_dungeon(
-        #     max_rooms=max_rooms,
-        #     room_min_size=room_min_size,
-        #     room_max_size=room_max_size,
-        #     map_width=map_width,
-        #     map_height=map_height,
-        #     player=self.player
-        # )
-
-        self.wall_determined = Wall(25, 25)
         self.engine = Engine()
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)

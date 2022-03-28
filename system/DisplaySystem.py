@@ -7,7 +7,7 @@ from system.System import System
 
 
 class DisplaySystem(System):
-    def update(self, context, console, entities: List[Entity]):
+    def update(self, context, console, entities):
         console.clear()
 
         for e in entities:
