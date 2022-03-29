@@ -57,4 +57,4 @@ class Engine(metaclass=SingletonMeta):
 
     # TODO should not pass self.entities, as entity list can be accessed from Entity.entitymapping static list
     def update(self):
-        self.system_manager.update(self.context, self.console, Entity.entity_mapping.values())
+        self.system_manager.update(self.context, self.console, Entity.entitymapping.values())

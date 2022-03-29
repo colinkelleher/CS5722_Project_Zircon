@@ -15,3 +15,9 @@ class PositionComponent(Component):
 
     def set_pos_y(self, y: int):
         self.y = y
+
+    def get_pos_x(self) -> int:
+        return self.x
+
+    def get_pos_y(self) -> int:
+        return self.y

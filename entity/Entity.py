@@ -6,12 +6,12 @@ from memento.Memento import Memento
 
 
 class Entity(object):
-    entity_mapping = {}  # Maps entity IDs to entity objects
+    entitymapping = {}  # Maps entity IDs to entity objects
 
     def __init__(self, *components):
         self.id = str(uuid.uuid4())
         self.components = {}
-        self.entity_mapping[self.id] = self
+        self.entitymapping[self.id] = self
 
         for component in components:
             self.set_component(component)
