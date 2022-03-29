@@ -41,6 +41,8 @@ class Main:
                         poscomp.x -= 1
                     elif key == tcod.event.K_RIGHT:
                         poscomp.x += 1
+                    elif key == tcod.event.K_ESCAPE:
+                        Invoker(exitCommand()).invoke()
                 if isinstance(event, tcod.event.Quit):
                     Invoker(exitCommand()).invoke()
 
