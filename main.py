@@ -1,5 +1,4 @@
 import tcod
-
 import config
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
@@ -7,6 +6,10 @@ from entity.Player import Player
 from system.DisplaySystem import DisplaySystem
 from command.exitCommand import exitCommand
 from command.Invoker import Invoker
+from command.rightCommand import rightCommand
+from command.leftCommand import leftCommand
+from command.upCommand import upCommand
+from command.downCommand import downCommand
 
 
 class Main:
@@ -34,13 +37,13 @@ class Main:
                 if isinstance(event, tcod.event.KeyDown):  # later we should have many entities
                     key = event.sym
                     if key == tcod.event.K_UP:
-                        poscomp.y -= 1
+                        Invoker(upCommand(poscomp)).invoke()
                     elif key == tcod.event.K_DOWN:
-                        poscomp.y += 1
+                        Invoker(downCommand(poscomp)).invoke()
                     elif key == tcod.event.K_LEFT:
-                        poscomp.x -= 1
+                        Invoker(leftCommand(poscomp)).invoke()
                     elif key == tcod.event.K_RIGHT:
-                        poscomp.x += 1
+                        Invoker(rightCommand(poscomp)).invoke()
                     elif key == tcod.event.K_ESCAPE:
                         Invoker(exitCommand()).invoke()
                 if isinstance(event, tcod.event.Quit):
