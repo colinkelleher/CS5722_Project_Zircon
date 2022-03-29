@@ -5,6 +5,8 @@ from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
 from entity.Player import Player
 from system.DisplaySystem import DisplaySystem
+from command.exitCommand import exitCommand
+from command.Invoker import Invoker
 
 
 class Main:
@@ -19,10 +21,9 @@ class Main:
 
     def core_game_loop(self):
 
+
         while True:
-
             self.engine.update()
-
             # This event loop will wait until at least one event is processed before exiting.
             # For a non-blocking event loop replace `tcod.event.wait` with `tcod.event.get`.
             for event in tcod.event.wait():
@@ -41,7 +42,8 @@ class Main:
                     elif key == tcod.event.K_RIGHT:
                         poscomp.x += 1
                 if isinstance(event, tcod.event.Quit):
-                    raise SystemExit()
+                    Invoker(exitCommand()).invoke()
+
 
                 # The window will be closed after the above with-block exits.
 
