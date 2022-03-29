@@ -1,3 +1,4 @@
+import config
 from component.DisplayComponent import DisplayComponent
 from component.PositionComponent import PositionComponent
 from entity.Entity import Entity
@@ -5,4 +6,7 @@ from entity.Entity import Entity
 
 class Player(Entity):
     def __init__(self, x: int = None, y: int = None):
-        super().__init__(DisplayComponent("@", (0, 0, 0)), PositionComponent(x, y))
+        super().__init__(
+            DisplayComponent("@", config.bg_color_player, config.fg_color_player),
+            PositionComponent(x, y)
+        )
