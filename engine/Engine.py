@@ -5,8 +5,8 @@ import tcod
 import config
 from definitions import ROOT_DIR
 from entity.Entity import Entity
+from entity.Player import Player
 from factory.FactoryMethod import client_code, MapGeneratorSimple
-from factory.GameMapCreator import GameMapSimple
 from system.SystemManager import SystemManager
 
 
@@ -54,6 +54,8 @@ class Engine(metaclass=SingletonMeta):
         print("\n")
         client_code(MapGeneratorSimple())
         print("\n")
+
+        self.player = Player(int(self.screen_width / 2), int(self.screen_height / 2))
 
     # TODO should not pass self.entities, as entity list can be accessed from Entity.entitymapping static list
     def update(self):

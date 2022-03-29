@@ -1,8 +1,6 @@
 import tcod
-import config
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
-from entity.Player import Player
 from system.DisplaySystem import DisplaySystem
 from command.exitCommand import exitCommand
 from command.Invoker import Invoker
@@ -14,16 +12,11 @@ from command.downCommand import downCommand
 
 class Main:
     def __init__(self):
-        screen_width = config.screen_width
-        screen_height = config.screen_height
-        self.player = Player(int(screen_width / 2), int(screen_height / 2))
-
         self.engine = Engine()
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)
 
     def core_game_loop(self):
-
 
         while True:
             self.engine.update()
@@ -33,22 +26,22 @@ class Main:
                 self.engine.context.convert_event(event)  # Sets tile coordinates for mouse events.
                 print(event)  # Print event names and attributes.
 
-                poscomp = self.player.get(PositionComponent)  # Get displayComponent for the single Entity
+                player_pos_comp = self.engine.player.get(
+                    PositionComponent)  # Get displayComponent for the single Entity
                 if isinstance(event, tcod.event.KeyDown):  # later we should have many entities
                     key = event.sym
                     if key == tcod.event.K_UP:
-                        Invoker(upCommand(poscomp)).invoke()
+                        Invoker(upCommand(player_pos_comp)).invoke()
                     elif key == tcod.event.K_DOWN:
-                        Invoker(downCommand(poscomp)).invoke()
+                        Invoker(downCommand(player_pos_comp)).invoke()
                     elif key == tcod.event.K_LEFT:
-                        Invoker(leftCommand(poscomp)).invoke()
+                        Invoker(leftCommand(player_pos_comp)).invoke()
                     elif key == tcod.event.K_RIGHT:
-                        Invoker(rightCommand(poscomp)).invoke()
+                        Invoker(rightCommand(player_pos_comp)).invoke()
                     elif key == tcod.event.K_ESCAPE:
                         Invoker(exitCommand()).invoke()
                 if isinstance(event, tcod.event.Quit):
                     Invoker(exitCommand()).invoke()
-
 
                 # The window will be closed after the above with-block exits.
 
