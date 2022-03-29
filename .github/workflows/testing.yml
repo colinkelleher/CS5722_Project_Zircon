@@ -22,7 +22,7 @@ jobs:
           python-version: 3.9
           
   test: 
-      name: SystemTests
+      name: Tests
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
@@ -30,6 +30,6 @@ jobs:
           run: |
             pip install tcod
             pip install numpy
-            python3 -m unittest test/*
+            python3 -m unittest test/*/*
 
   
