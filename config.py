@@ -23,13 +23,13 @@ map_width = 90
 map_height = 60
 
 # Colors
-bg_color_player: Tuple = 0, 0, 0
-bg_color_floor: Tuple = 200, 200, 200
-bg_color_wall: Tuple = 100, 100, 100
-bg_color_item: Tuple = 200, 200, 200
+bg_color_player: Tuple = (0, 0, 0)
+bg_color_floor: Tuple = (200, 200, 200)
+bg_color_wall: Tuple = (100, 100, 100)
+bg_color_item: Tuple = (200, 200, 200)
 
-fg_color_player: Tuple = 255, 255, 255
-fg_color_floor: Tuple = 0, 0, 0
-fg_color_wall: Tuple = 0, 0, 0
-fg_color_item: Tuple = 20, 148, 20
+fg_color_player: Tuple = (255, 255, 255)
+fg_color_floor: Tuple = (0, 0, 0)
+fg_color_wall: Tuple = (0, 0, 0)
+fg_color_item: Tuple = (20, 148, 20)
 
