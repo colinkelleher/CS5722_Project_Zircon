@@ -53,12 +53,5 @@ class Main:
 
 if __name__ == "__main__":
     main = Main()
-
-    test_item = SimpleItem(2, 2, DamagedState())
-    test_item.use_action()
-    test_item.use_action()
-    test_item.fix_action()
-    test_item.fix_action()
-
     main.core_game_loop()
 
