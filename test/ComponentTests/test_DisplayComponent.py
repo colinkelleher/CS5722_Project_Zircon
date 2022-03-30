@@ -5,6 +5,6 @@ from component.DisplayComponent import DisplayComponent
 
 class TestDisplayComponent(TestCase):
     def test_set_color(self):
-        dispcomp = DisplayComponent("Test",(1,1,1))
-        dispcomp.set_color((2,2,2))
-        self.assertTrue(dispcomp.color == (2,2,2))
+        dispcomp = DisplayComponent("test",(2,2,2),(2,2,2))
+        dispcomp.set_fg_color((2,2,2))
+        self.assertTrue(dispcomp.fg_color == (2,2,2))
