@@ -1,6 +1,8 @@
 import tcod
 from component.PositionComponent import PositionComponent
 from engine.Engine import Engine
+from entity.SimpleItem import SimpleItem
+from state.States import SimpleState, DamagedState
 from system.DisplaySystem import DisplaySystem
 from command.exitCommand import exitCommand
 from command.Invoker import Invoker
@@ -51,4 +53,12 @@ class Main:
 
 if __name__ == "__main__":
     main = Main()
+
+    test_item = SimpleItem(2, 2, DamagedState())
+    test_item.use_action()
+    test_item.use_action()
+    test_item.fix_action()
+    test_item.fix_action()
+
     main.core_game_loop()
+

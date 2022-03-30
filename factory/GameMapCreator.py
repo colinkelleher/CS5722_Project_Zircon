@@ -10,7 +10,8 @@ import config
 from component.PositionComponent import PositionComponent
 from entity.Entity import Entity
 from entity.Floor import Floor
-from entity.Item import Item, add_item
+from entity.HealingItem import add_healing_item
+from entity.SimpleItem import SimpleItem, add_simple_item
 from entity.Wall import Wall
 from factory.RoomObject import RectangularRoom
 from factory.TunnelObject import tunnel_between
@@ -69,9 +70,13 @@ class GameMapSimple(GameMap, ABC):  # Concrete creator
                 # for x, y in tunnel_between(rooms[-1].center, new_room.center):
                 #     tunnel_floor = Floor(x, y)
 
-            # Add randomly 0, 1 or 2 Item in the room
+            # Add randomly 0, 1 or 2 SimpleItem in the room
             for i in range(random.randint(0, 2)):
-                add_item(new_room)
+                add_simple_item(new_room)
+
+            # Add randomly 0 or 1 HealingItem in the room
+            for i in range(random.randint(0, 1)):
+                add_healing_item(new_room)
 
             # Finally, append the new room to the list.
             rooms.append(new_room)
