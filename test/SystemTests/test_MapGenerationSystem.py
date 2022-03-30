@@ -1,13 +1,6 @@
 from unittest import TestCase
-from factory.FactoryMethod import GameMap
-from factory.FactoryMethod import RectangularRoom
+from factory.RoomObject import RectangularRoom
 
-
-class TestGameMap(TestCase):
-    def test_in_bounds(self):
-        gm = GameMap(10,10)
-        self.assertTrue(gm.in_bounds(1,1))
-        self.assertFalse(gm.in_bounds(20,20))
 
 class TestRectangularRoom(TestCase):
     def test_center(self):
