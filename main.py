@@ -5,6 +5,8 @@ from component.PositionComponent import PositionComponent
 from component.HpComponent import HpComponent
 from engine.Engine import Engine
 from entity.SimpleItem import SimpleItem
+from events import MessageBus
+from events.EventManager import InputManager
 from state.States import SimpleState, DamagedState
 from system.DisplaySystem import DisplaySystem
 from command.exitCommand import exitCommand
@@ -20,6 +22,7 @@ class Main:
         self.engine = Engine()
         display_system = DisplaySystem()
         self.engine.system_manager.set_system(display_system)
+        input_manager = InputManager(self.engine.player)
 
     def core_game_loop(self):
 
@@ -34,20 +37,7 @@ class Main:
                 player = self.engine.player
                 player_pos_comp = player.get(PositionComponent)  # Get displayComponent for the single Entity
                 player_hp_comp = player.get(HpComponent)
-                if isinstance(event, tcod.event.KeyDown):  # later we should have many entities
-                    key = event.sym
-                    if key == tcod.event.K_UP:
-                        Invoker(upCommand(player_pos_comp)).invoke()
-                    elif key == tcod.event.K_DOWN:
-                        Invoker(downCommand(player_pos_comp)).invoke()
-                    elif key == tcod.event.K_LEFT:
-                        Invoker(leftCommand(player_pos_comp)).invoke()
-                    elif key == tcod.event.K_RIGHT:
-                        Invoker(rightCommand(player_pos_comp)).invoke()
-                    elif key == tcod.event.K_ESCAPE:
-                        Invoker(exitCommand()).invoke()
-                    elif key == tcod.event.K_h:
-                        player.healing_item.use_action(player_hp_comp)
+                MessageBus.handle(event)
                 if isinstance(event, tcod.event.Quit):
                     Invoker(exitCommand()).invoke()
 
