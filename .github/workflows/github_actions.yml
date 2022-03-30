@@ -40,6 +40,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: Running SystemTests
           run: |
+            pip install tcod
             pip install numpy
             python3 -m unittest test/SystemTests/*
 
@@ -85,4 +86,12 @@ jobs:
         - uses: actions/checkout@v2
         - name: Running ComponentTests
           run: python3 -m unittest test/ComponentTests/*
+          
+  commandtest:
+      name: CommandTests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Running ComponentTests
+          run: python3 -m unittest test/CommandTests/*
 
