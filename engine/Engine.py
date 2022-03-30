@@ -6,7 +6,7 @@ import config
 from definitions import ROOT_DIR
 from entity.Entity import Entity
 from entity.Player import Player
-from factory.FactoryMethod import client_code, MapGeneratorSimple
+from factory.FactoryMethod import MapGeneratorSimple
 from system.SystemManager import SystemManager
 
 
@@ -51,9 +51,8 @@ class Engine(metaclass=SingletonMeta):
         self.system_manager = SystemManager()
 
         # Creation of Entities Wall and Floor
-        print("\n")
-        client_code(MapGeneratorSimple())
-        print("\n")
+        self.creator = MapGeneratorSimple()
+        print(f"\n{self.creator.create_map()}\n")
 
         self.player = Player(int(self.screen_width / 2), int(self.screen_height / 2))
 

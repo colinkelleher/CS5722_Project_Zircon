@@ -22,7 +22,3 @@ class MapGeneratorSimple(MapGenerator):  # Concrete Factory
 
     def factory_method(self) -> GameMap:
         return GameMapSimple()
-
-
-def client_code(creator: MapGenerator) -> None:
-    print(f"{creator.create_map()}")

@@ -1,5 +1,8 @@
 import tcod
+
+from command.useHealingItemCommand import useHealingItemCommand
 from component.PositionComponent import PositionComponent
+from component.HpComponent import HpComponent
 from engine.Engine import Engine
 from entity.SimpleItem import SimpleItem
 from state.States import SimpleState, DamagedState
@@ -28,8 +31,9 @@ class Main:
                 self.engine.context.convert_event(event)  # Sets tile coordinates for mouse events.
                 print(event)  # Print event names and attributes.
 
-                player_pos_comp = self.engine.player.get(
-                    PositionComponent)  # Get displayComponent for the single Entity
+                player = self.engine.player
+                player_pos_comp = player.get(PositionComponent)  # Get displayComponent for the single Entity
+                player_hp_comp = player.get(HpComponent)
                 if isinstance(event, tcod.event.KeyDown):  # later we should have many entities
                     key = event.sym
                     if key == tcod.event.K_UP:
@@ -42,6 +46,8 @@ class Main:
                         Invoker(rightCommand(player_pos_comp)).invoke()
                     elif key == tcod.event.K_ESCAPE:
                         Invoker(exitCommand()).invoke()
+                    elif key == tcod.event.K_h:
+                        player.healing_item.use_action(player_hp_comp)
                 if isinstance(event, tcod.event.Quit):
                     Invoker(exitCommand()).invoke()
 
@@ -53,12 +59,5 @@ class Main:
 
 if __name__ == "__main__":
     main = Main()
-
-    test_item = SimpleItem(2, 2, DamagedState())
-    test_item.use_action()
-    test_item.use_action()
-    test_item.fix_action()
-    test_item.fix_action()
-
     main.core_game_loop()
 
