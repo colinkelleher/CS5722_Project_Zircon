@@ -31,8 +31,9 @@ class Main:
                 self.engine.context.convert_event(event)  # Sets tile coordinates for mouse events.
                 print(event)  # Print event names and attributes.
 
-                player_pos_comp = self.engine.player.get(PositionComponent)  # Get displayComponent for the single Entity
-                player_hp_comp = self.engine.player.get(HpComponent)
+                player = self.engine.player
+                player_pos_comp = player.get(PositionComponent)  # Get displayComponent for the single Entity
+                player_hp_comp = player.get(HpComponent)
                 if isinstance(event, tcod.event.KeyDown):  # later we should have many entities
                     key = event.sym
                     if key == tcod.event.K_UP:
@@ -46,7 +47,7 @@ class Main:
                     elif key == tcod.event.K_ESCAPE:
                         Invoker(exitCommand()).invoke()
                     elif key == tcod.event.K_h:
-                        Invoker(useHealingItemCommand(player_hp_comp)).invoke()
+                        player.healing_item.use_action(player_hp_comp)
                 if isinstance(event, tcod.event.Quit):
                     Invoker(exitCommand()).invoke()
 

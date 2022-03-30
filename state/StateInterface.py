@@ -1,6 +1,8 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 
+from component.Component import Component
+
 
 class State(ABC):
 
@@ -13,7 +15,7 @@ class State(ABC):
         self._context = context
 
     @abstractmethod
-    def use_item(self) -> None:
+    def use_item(self, comp: Component) -> None:
         pass
 
     @abstractmethod
@@ -36,8 +38,8 @@ class Item:
         self._state = state
         self._state.context = self
 
-    def use_action(self):
-        self._state.use_item()
+    def use_action(self, player_hp_comp: Component):
+        self._state.use_item(player_hp_comp)
 
     def fix_action(self):
         self._state.repair_item()

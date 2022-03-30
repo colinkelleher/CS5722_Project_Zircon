@@ -3,6 +3,8 @@ from component.DisplayComponent import DisplayComponent
 from component.PositionComponent import PositionComponent
 from component.HpComponent import HpComponent
 from entity.Entity import Entity
+from entity.HealingItem import HealingItem
+from state.States import NewState
 
 
 class Player(Entity):
@@ -12,3 +14,4 @@ class Player(Entity):
             PositionComponent(x, y),
             HpComponent()
         )
+        self.healing_item = HealingItem(20, 65, NewState())
