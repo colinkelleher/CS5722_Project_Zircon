@@ -14,6 +14,7 @@ from command.rightCommand import rightCommand
 from command.leftCommand import leftCommand
 from command.upCommand import upCommand
 from command.downCommand import downCommand
+from command.useHealingItemCommand import useHealingItemCommand
 
 
 class EventManager:
@@ -40,6 +41,7 @@ class InputManager(EventManager, metaclass=SingletonMeta):
         elif key == tcod.event.K_ESCAPE:
             Invoker(exitCommand()).invoke()
         elif key == tcod.event.K_h:
-            self.player.healing_item.use_action(player_hp_comp)
+            Invoker(useHealingItemCommand(self.player.healing_item.use_action(player_hp_comp)))
+            # self.player.healing_item.use_action(player_hp_comp)
         
 
