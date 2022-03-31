@@ -1,6 +1,6 @@
 from command.Command import Command
 from command.Invoker import Invoker
-from command.leftCommand import leftCommand
+
 
 
 class rightCommand(Command):
@@ -13,4 +13,5 @@ class rightCommand(Command):
         self.poscomp.set_pos_x(y)
 
     def undo(self) -> None:
+        from command.leftCommand import leftCommand
         Invoker(leftCommand()).invoke()

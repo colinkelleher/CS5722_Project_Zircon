@@ -1,6 +1,5 @@
 from command.Command import Command
-from command.Invoker import Invoker
-from command.upCommand import upCommand
+
 
 
 class downCommand(Command):
@@ -13,4 +12,5 @@ class downCommand(Command):
         self.poscomp.set_pos_y(z)
 
     def undo(self):
-        Invoker(upCommand()).invoke()
+        from command.upCommand import upCommand
+        upCommand().execute()
