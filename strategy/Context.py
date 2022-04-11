@@ -8,11 +8,9 @@ class Context():
     def strategy(self)-> Strategy:
         return self._strategy
 
-    @strategy.setter
-    def strategy(self, strategy: Strategy) -> None:
+    def setstrategy(self, strategy: Strategy) -> None:
         self._strategy = strategy
 
-    def businessLogic(self)-> List:
-        # Testing random business logic here - Any task can be put here
-        result = self._strategy.completeTask([1,2,3,4,5])
-        return result
+    def businessLogic(self)-> str:
+        x = self.strategy.selection()
+        return x

@@ -10,5 +10,5 @@ from typing import List
 
 class Strategy(ABC):
     @abstractmethod
-    def completeTask(self,data:List):
+    def selection(self) -> None:
         pass
