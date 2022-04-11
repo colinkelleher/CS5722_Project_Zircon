@@ -12,5 +12,5 @@ class Item:
     def use_action(self, comp):
         self._state.use_item(comp)
 
-    def fix_action(self):
+    def repair_action(self):
         self._state.repair_item()

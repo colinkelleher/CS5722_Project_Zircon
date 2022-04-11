@@ -8,6 +8,10 @@ from state.StateInterface import State
 
 
 class SimpleState(State):
+
+    def __init__(self):
+        self.name = "Simple"
+
     def use_item(self, comp) -> None:
         print("Nothing happens.")
 
@@ -20,6 +24,10 @@ class SimpleState(State):
 
 
 class NewState(State):
+
+    def __init__(self):
+        self.name = "New"
+
     def use_item(self, player_hp_comp) -> None:
         print("Item is used.\n")
         self.context.transition_to(UsedState())
@@ -34,6 +42,10 @@ class NewState(State):
 
 
 class UsedState(State):
+
+    def __init__(self):
+        self.name = "Used"
+
     def use_item(self, player_hp_comp) -> None:
         print("Item is used.\n")
         self.context.transition_to(DamagedState())
@@ -49,6 +61,10 @@ class UsedState(State):
 
 
 class DamagedState(State):
+
+    def __init__(self):
+        self.name = "Damaged"
+
     def use_item(self, player_hp_comp) -> None:
         print("Item is in DamagedState, it can't be used, nothing happens.\n")
 
