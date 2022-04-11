@@ -1,20 +1,13 @@
 import tcod
 
-from command.useHealingItemCommand import useHealingItemCommand
 from component.PositionComponent import PositionComponent
 from component.HpComponent import HpComponent
 from engine.Engine import Engine
-from entity.SimpleItem import SimpleItem
 from events import MessageBus
 from events.EventManager import InputManager
-from state.States import SimpleState, DamagedState
 from system.DisplaySystem import DisplaySystem
 from command.exitCommand import exitCommand
 from command.Invoker import Invoker
-from command.rightCommand import rightCommand
-from command.leftCommand import leftCommand
-from command.upCommand import upCommand
-from command.downCommand import downCommand
 
 
 class Main:
