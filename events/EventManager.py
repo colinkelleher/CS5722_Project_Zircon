@@ -27,7 +27,7 @@ class InputManager(EventManager, metaclass=SingletonMeta):
 
     def handle_input(self, event: tcod.event.KeyDown):
         key = event.sym
-        player_pos_comp = self.player.get(PositionComponent)  # Get displayComponent for the single Entity
+        player_pos_comp = self.player.get(PositionComponent)  # Get positionComponent for the single Entity
         player_hp_comp = self.player.get(HpComponent)
 
         if key == tcod.event.K_UP:
