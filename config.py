@@ -32,5 +32,4 @@ fg_color_player: Tuple = (255, 255, 255)
 fg_color_floor: Tuple = (0, 0, 0)
 fg_color_wall: Tuple = (0, 0, 0)
 fg_color_item: Tuple = (20, 148, 20)
-fg_color_item_damaged: Tuple = (255, 0, 0)
 

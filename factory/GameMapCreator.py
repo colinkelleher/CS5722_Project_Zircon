@@ -30,7 +30,7 @@ class GameMap(ABC):  # Creator interface
 
 class GameMapSimple(GameMap, ABC):  # Concrete creator
     """
-    The GameMapSimple creates Floor and Wall tiles to draw rectangle shapes
+    The GameMapSimple creates only Floor tiles to draw rectangle shapes
     """
 
     def create_walls(self) -> str:

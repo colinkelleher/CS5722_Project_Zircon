@@ -5,9 +5,9 @@ from component.DisplayComponent import DisplayComponent
 from component.PositionComponent import PositionComponent
 from component.WalkableComponent import WalkableComponent
 from entity.Entity import Entity
-from entity.HealingItem import State, SimpleState
 from factory.RoomObject import RectangularRoom
-from state.ItemInterface import Item
+from state.StateInterface import State, Item
+from state.States import SimpleState
 
 
 class SimpleItem(Entity, Item):

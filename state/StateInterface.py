@@ -2,18 +2,17 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 
 from component.Component import Component
-from entity.HealingItem import HealingItem
-# from state.ItemInterface import Item
+from state.ItemInterface import Item
 
-"""
+
 class State(ABC):
 
     @property
-    def context(self) -> HealingItem:
+    def context(self) -> Item:
         return self._context
 
     @context.setter
-    def context(self, context: HealingItem) -> None:
+    def context(self, context: Item) -> None:
         self._context = context
 
     @abstractmethod
@@ -26,4 +25,4 @@ class State(ABC):
 
 
 """
-
+"""
